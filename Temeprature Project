@@ -1,0 +1,38 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+from numpy import random
+
+data = {}
+day = []
+for x in range(90):
+        day.append(x)
+days = np.array(day)
+
+t = np.random.randint(30,40,size = 90)
+
+Minedict = {'Days':days,
+             'Temperature':t
+             }
+             
+df = pd.DataFrame.from_dict(Minedict)
+df
+
+Temp = px.strip(
+    df,
+    x = "Days",
+    y = "Temperature"
+)
+Temp.show()
+
+T = px.line(
+    x = days,
+    y = t,
+    color = t
+)
+T.show()
+df.plot.bar(x = 'Days',  y = 'Temperature', figsize = (20,5),color= 'orange',edgecolor = 'red',linewidth = 1)
+
+df.plot(x = 'Days', y = 'Temperature',kind= 'scatter',figsize = (20,4),color = 'darkblue')
+
+df.plot(x = 'Days', y = 'Temperature',kind= 'scatter',figsize = (20,4),color = 'darkgreen',s = 50)
